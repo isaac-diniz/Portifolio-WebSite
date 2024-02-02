@@ -35,6 +35,7 @@ body{
 }
 
 .navbar a{
+    display: inline-block;
     font-size: 18px;
     color: #fff;
     text-decoration: none;
@@ -68,10 +69,15 @@ body{
 .home-content h3{
     font-size: 32px;
     font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .5s;
 }
 
 .home-content h3:nth-of-type(2){
     margin-bottom: 30px;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .5s;
 }
 
 .home-content h3 span{
@@ -81,16 +87,25 @@ body{
     font-size: 56px;
     font-weight: 700;
     margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .5s;
 }
 
 .home-content p{
     font-size: 16px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: .5s;
 
 }
 
 .home-img img {
     max-width: 450px;
     margin-right: -20px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
 }
 
 .social-media a{
@@ -107,6 +122,9 @@ body{
     text-decoration: none;
     margin: 30px 15px 30px 0;
     transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
 }
 
 .social-media a:hover{
@@ -126,6 +144,9 @@ body{
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
 }
 
 /*animações*/
@@ -147,5 +168,44 @@ body{
     100%{
         transform: translateY(0);
         opacity: 1;
+    }
+}
+@keyframes slideBottom{
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes zoomIn{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}  
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }50%{
+        transform: translateY(-24px);
+    }100%{
+        transform: translateY(0);
     }
 }
